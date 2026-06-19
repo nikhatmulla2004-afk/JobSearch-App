@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero">
+            <h1 id="welcome">Find your next dream job</h1>
+            <p class="hero-copy">Search remote and local roles by title, keyword, or location. Fast results with employer links, salary insights, and application details.</p>
+        </header>
+
+        <section class="search-panel">
+            <div class="input-group">
+                <label for="search-input">Job title or keyword</label>
+                <input type="text" id="search-input" placeholder="Enter job title or keyword">
+            </div>
+            <div class="input-group">
+                <label for="location-input">Country or city</label>
+                <input type="text" id="location-input" placeholder="Enter country or city">
+            </div>
+            <button id="search-button" onClick="fetchJobDetails()">Search jobs</button>
+        </section>
+
+        <section id="results" class="results"></section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
