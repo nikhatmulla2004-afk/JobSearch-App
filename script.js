@@ -1,4 +1,3 @@
-
 const queryInput = document.getElementById('search-input');
 const countryInput = document.getElementById('location-input');
 const resultsContainer = document.getElementById('results');
@@ -85,6 +84,30 @@ queryInput.addEventListener('input', (event) => {
 countryInput.addEventListener('input', (event) => {
     country = event.target.value;
 });
+
+// Category navigation: map buttons to quick searches
+const initCategoryNav = () => {
+    const categoryButtons = Array.from(document.querySelectorAll('.category-btn'));
+    if (!categoryButtons.length) return;
+
+    const setActive = (clicked) => {
+        categoryButtons.forEach((b) => b.classList.remove('active'));
+        clicked.classList.add('active');
+    };
+
+    categoryButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const q = btn.dataset.query || '';
+            query = q;
+            queryInput.value = q;
+            setActive(btn);
+            fetchJobDetails();
+        });
+    });
+};
+
+// initialize immediately (script is loaded at end of body)
+initCategoryNav();
 
 const options = {
 	method: 'GET',
